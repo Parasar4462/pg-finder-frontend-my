@@ -52,7 +52,7 @@ const App = () => {
           <Route path="admindashboard" element={<AdminDashboard />} />
           <Route path="pgBuildings" element={<PgBuldings />} />
           {/* route for update pg */}
-          <Route path="pgBuldings/pg/update/:id" element={<PgUpdate />} />
+          <Route path="pgBuldings/pg/update" element={<PgUpdate />} />
          
          
           <Route path="pgRooms" element={<PgRooms />} />

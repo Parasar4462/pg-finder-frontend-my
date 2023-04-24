@@ -19,7 +19,7 @@ const PgUpdate = () => {
             console.log(res.data.data)
             setpg(res.data.data)
 
-            navigate(`/pg/update/${_id}`)
+            navigate(`/pg/update/`)
         })
     }
 

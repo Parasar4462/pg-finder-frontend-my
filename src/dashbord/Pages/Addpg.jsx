@@ -3,7 +3,7 @@ import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { useForm } from 'react-hook-form'
-import { Navigate } from 'react-router-dom'
+
 const Addpg = () => {
     const { register, handleSubmit } = useForm();
     const [types, settypes] = useState();
@@ -44,19 +44,84 @@ const Addpg = () => {
             setpgtypes(res.data.data);
         });
     };
-
-
-
-
-
     return (
+
         <div>
+            <style>
+                {`
+                .container{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                }
+                .row{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                }
+                .col-md-6{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                }
+                table{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-direction: column;
+                }
+                tr{
+                    display: flex;
+                    justify-content: space-between;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: row;
+                }
+                input{
+                    width: 100%;
+                    padding: 12px 20px;
+                    margin: 8px 0;
+                    display: inline-block;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    box-sizing: border-box;
+                }
+                button{
+                    width: 100%;
+                    background-color: blue;
+                    color: black;
+                    padding: 14px 20px;
+                    margin: 8px 0;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+
+
+                `}
+
+            </style>
             <ToastContainer />
             <div className="container">
-                <div className="row">
+                <div className="row 
+                ">
                     <div className="col-md-6">
                         <form >
-                            <table>
+                            <table style={{
+                                width: "100%",
+                                border: "1px solid black",
+                                padding: "10px",
+                                margin: "10px",
+                                textAlign: "center",
+                                backgroundColor: "white",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                flexDirection: "column"
+                            }} >
                                 <tr>
                                     <th>
                                         <label>Id</label>
@@ -131,14 +196,43 @@ const Addpg = () => {
                                         <input type="file" name="image" {...register('image')} />
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th>
-                                        <label>Facilities</label>
-                                    </th>
-                                    <td>
-                                        <input type="text" name="facilities" {...register('facilities')} />
 
-                                    </td>
+                                <tr>
+                                    <div>
+                                        <label>Facilities</label>
+                                        {/* fullfurnished,
+                                        parking,
+                                        wifi,
+                                        ac,
+                                    meal,
+                                   meal.breakfast,
+                                      meal.lunch,
+                                        meal.dinner,
+                                         */}
+
+                                        <div>
+
+                                            
+                                            <label>Fullfurnished</label>
+                                            <input type="checkbox" name="fullfurnished" {...register('fullfurnished')} />
+
+                                            <label>Parking</label>
+                                            <input type="checkbox" name="parking" {...register('parking')} />
+
+                                            <label>Wifi</label>
+                                            <input type="checkbox" name="wifi" {...register('wifi')} />
+                                            
+                                            <label>Ac</label>
+                                            <input type="checkbox" name="ac" {...register('ac')} />
+
+                                            <h3>Meal</h3>
+                                            <input type="checkbox" name="breakfast" {...register('meal.breakfast')} />
+                                            <input type="checkbox" name="lunch" {...register('meal.lunch')} />
+                                            <input type="checkbox" name="dinner" {...register('meal.dinner')} />
+
+                                    </div>
+
+                                    </div>     
                                </tr>
                                 <tr>
                                     <td>
@@ -148,18 +242,12 @@ const Addpg = () => {
 
                                     </td>
                                 </tr>
-
-
-
                             </table>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-
-
-
     )
 }
 

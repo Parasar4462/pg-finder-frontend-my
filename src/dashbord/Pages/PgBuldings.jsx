@@ -23,15 +23,11 @@ const PgBuldings = () => {
 
     //get pg by id
     const [pge, setpge] = useState()
-    const { _id } = useParams()
-    const getPgById = (id) => {
-
-    
-        axios.get(`http://localhost:5000/pg/get/${id}`).then((res) => {
-            console.log(res.data.data)
-
-            navigate(`pg/update/${id}`)
-        })
+    const { id } = useParams()
+    const getpgById = () => {
+        
+            navigate(`pg/update`)
+        
     }
 
 
@@ -46,9 +42,11 @@ const PgBuldings = () => {
 
     
 
-    const onSubmit = (data) => {
-        console.log(data)
-        getPgById(data)
+    const onSubmit = () => {
+        console.log("update pg")
+
+        getpgById()
+        
         
     }
 
@@ -169,7 +167,7 @@ const PgBuldings = () => {
 
                                     <td class="border px-4 py-2">
                                         <button  onClick={
-                                            () => onSubmit(pg.id)
+                                            () => onSubmit()
                                         } class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Edit</button>
                                         <button onClick={() => handleDelete(pg)} class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
                                     </td>
